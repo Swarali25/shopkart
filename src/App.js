@@ -9,6 +9,7 @@ import Cart from "./components/Cart";
 import Footer from "./components/Footer";
 import ProductState from "./context/ProductState";
 import AuthState from "./context/AuthState";
+import ProductDetails from "./components/ProductDetails";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route exact path="/login" element={<Login />}></Route>
           <Route exact path="/signup" element={<SignUp />}></Route>
           <Route exact path="/cart" element={<Cart />}></Route>
+          <Route path="/product/:id" element={<ProductDetails/>} />
         </Routes>
         <Footer/>
       </Router>
