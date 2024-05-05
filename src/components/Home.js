@@ -22,7 +22,7 @@ const Home = () => {
       </div>
       
       {/* Best Seller */}
-      <Products/>
+      <Products category={"Best Seller"}/>
     </div>
   );
 };

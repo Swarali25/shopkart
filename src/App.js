@@ -7,10 +7,12 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Cart from "./components/Cart";
 import Footer from "./components/Footer";
+import ProductState from "./context/ProductState";
 
 function App() {
   return (
     <div>
+      <ProductState>
       <Router>
         <Navbar />
         <Routes>
@@ -24,6 +26,7 @@ function App() {
         </Routes>
         <Footer/>
       </Router>
+      </ProductState>
     </div>
   );
 }
