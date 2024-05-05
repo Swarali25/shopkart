@@ -10,6 +10,10 @@ const Products = (props) => {
     fetchProducts();
   }, []);
 
+  const toLowerCase = (word)=>{
+      return word.toLowerCase();
+  }
+
   return (
     <div className="container my-5">
       <h2>{props.category}</h2>
@@ -19,9 +23,25 @@ const Products = (props) => {
             return (
               item.rating.rate > 4.2 && <ProductItem item={item} key={item.id} />
             );
-          } else {
+        }
+        else if (props.category === "Women's Clothing"){
+            return (
+                item.category === toLowerCase(props.category) && <ProductItem item={item} key={item.id} />
+            );
+        }
+        else if (props.category === "Men's Clothing"){
+            return (
+                item.category === toLowerCase(props.category) && <ProductItem item={item} key={item.id} />
+            );
+        }
+        else if (props.category === "Electronics"){
+            return (
+                item.category === toLowerCase(props.category) && <ProductItem item={item} key={item.id} />
+            );
+        }
+        else {
             return <ProductItem item={item} key={item.id} />;
-          }
+        }
         })}
       </div>
     </div>

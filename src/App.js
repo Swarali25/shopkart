@@ -17,8 +17,9 @@ function App() {
         <Navbar />
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
-          <Route exact path="/womens" key={"womens"} element={<Products />}></Route>
-          <Route exact path="/mens" key={"mens"} element={<Products />}></Route>
+          <Route exact path="/womens" key={"womens"} element={<Products category={"Women's Clothing"}/>}></Route>
+          <Route exact path="/mens" key={"mens"} element={<Products category={"Men's Clothing"} />}></Route>
+          <Route exact path="/electronics" key={"electronics"} element={<Products category={"Electronics"} />}></Route>
           <Route exact path="/about" element={<About />}></Route>
           <Route exact path="/login" element={<Login />}></Route>
           <Route exact path="/signup" element={<SignUp />}></Route>
