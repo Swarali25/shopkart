@@ -1,0 +1,16 @@
+.bannerImg{
+    height: 25vh;
+    min-height: 400px;
+    width: 100vw;
+}
+
+.banner{
+    position: relative;
+}
+#offerCard{
+    color: white;
+    position: absolute;
+    top: 50%;
+    background: transparent;
+    border: none;
+}
