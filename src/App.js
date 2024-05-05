@@ -8,10 +8,12 @@ import SignUp from "./components/SignUp";
 import Cart from "./components/Cart";
 import Footer from "./components/Footer";
 import ProductState from "./context/ProductState";
+import AuthState from "./context/AuthState";
 
 function App() {
   return (
     <div>
+      <AuthState>
       <ProductState>
       <Router>
         <Navbar />
@@ -28,6 +30,7 @@ function App() {
         <Footer/>
       </Router>
       </ProductState>
+      </AuthState>
     </div>
   );
 }

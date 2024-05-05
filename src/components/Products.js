@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import ProductItem from "./ProductItem";
 import ProductContext from "../context/ProductContext";
-
 const Products = (props) => {
   const context = useContext(ProductContext);
   const { products, fetchProducts } = context;

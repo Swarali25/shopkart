@@ -1,14 +1,34 @@
-import React from "react";
+import React, { useContext,useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import AuthContext from "../context/AuthContext";
+import {doSignOut} from "../firebase/Auth"
 const Navbar = () => {
+  const context = useContext(AuthContext);
+  const { currentUser,userLoggedIn ,initializeUser} = context;
+  const signOut =async ()=>{
+    try{
+      await doSignOut();
+      initializeUser(null);
+    }
+    catch(e){
+      console.log(e)
+      alert("error in sigining out! Try again after some time")
+    }
+  }
+  useEffect(() => {
+    
+  }, [userLoggedIn]);
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-light ">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
-            <img src="https://bizwiziq.com/wp-content/uploads/2019/02/shopkart-orange-1.png" alt="shopkart logo" style={{height:"40px"}}/>
-         </Link>
+            <img
+              src="https://bizwiziq.com/wp-content/uploads/2019/02/shopkart-orange-1.png"
+              alt="shopkart logo"
+              style={{ height: "40px" }}
+            />
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -25,35 +45,66 @@ const Navbar = () => {
               <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="/">
                   Home
-               </Link>
+                </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/womens">
                   Womens's Clothing
-               </Link>
+                </Link>
               </li>
               <li className="nav-item">
-              <Link className="nav-link" to="/mens">
+                <Link className="nav-link" to="/mens">
                   Men's Clothing
-               </Link>
+                </Link>
               </li>
               <li className="nav-item">
-              <Link className="nav-link" to="/electronics">
-                 Electronics
-               </Link>
+                <Link className="nav-link" to="/electronics">
+                  Electronics
+                </Link>
               </li>
               <li className="nav-item">
-              <Link className="nav-link" to="/about">
+                <Link className="nav-link" to="/about">
                   About
-               </Link>
+                </Link>
               </li>
             </ul>
-            <Link className="btn btn-primary mx-2" to="/login" role="button">Login</Link>
-            <Link className="btn btn-primary mx-2" to="/signup" role="button">Signup</Link>
-            <Link to="/cart" className="mx-2"><i className="fa-solid fa-cart-shopping" id="cartIcon"></i></Link>
-            </div>
+
+            {!userLoggedIn && (
+              <div>
+                <Link
+                  className="btn btn-primary mx-2"
+                  to="/login"
+                  role="button"
+                >
+                  Login
+                </Link>{" "}
+                <Link
+                  className="btn btn-primary mx-2"
+                  to="/signup"
+                  role="button"
+                >
+                  Signup
+                </Link>
+              </div>
+            )}
+            {userLoggedIn && (
+              <div>
+                <i className="fa-solid fa-user"></i><span className="mx-2">{currentUser.email}</span>
+                <Link
+                  className="btn btn-primary mx-2"
+                  to="/login"
+                  role="button"
+                  onClick={signOut}
+                >
+                  Logout
+                </Link>
+              </div>
+            )}
+            <Link to="/cart" className="mx-2">
+              <i className="fa-solid fa-cart-shopping" id="cartIcon"></i>
+            </Link>
           </div>
-        
+        </div>
       </nav>
     </div>
   );
