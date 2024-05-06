@@ -10,14 +10,28 @@ import Footer from "./components/Footer";
 import ProductState from "./context/ProductState";
 import AuthState from "./context/AuthState";
 import ProductDetails from "./components/ProductDetails";
-
+import React ,{useState} from "react";
 function App() {
+  const [mode, setMode] = useState("dark");
+  
+  const changeMode = ()=>{
+    if(mode === "dark"){
+      document.body.style.backgroundColor = "white";
+       document.body.style.color = "black";
+       setMode("light")
+    }
+    else{
+      document.body.style.backgroundColor = "#231d1d";
+      document.body.style.color = "white"
+      setMode("dark")
+    }
+  }
   return (
     <div>
       <AuthState>
       <ProductState>
       <Router>
-        <Navbar />
+        <Navbar mode={mode} changeMode={changeMode}/>
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
           <Route exact path="/womens" key={"womens"} element={<Products category={"Women's Clothing"}/>}></Route>
@@ -29,7 +43,7 @@ function App() {
           <Route exact path="/cart" element={<Cart />}></Route>
           <Route path="/product/:id" element={<ProductDetails/>} />
         </Routes>
-        <Footer/>
+        <Footer mode={mode}/>
       </Router>
       </ProductState>
       </AuthState>

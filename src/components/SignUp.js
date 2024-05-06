@@ -26,8 +26,8 @@ const SignUp = () => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
   return (
-    <div className="container-md my-4">
-      <div className="col-md-6" style={{ margin: "auto" }}>
+    <div className="container-md my-4 d-flex" style={{height:"480px"}}>
+      <div className="col-md-6" style={{ margin: "auto",background:"#9d9dce",border:"1px solid grey", borderRadius:"5px" }}>
         <form
           style={{ border: "1px solid grey", borderRadius: "5px" }}
           className="p-3"

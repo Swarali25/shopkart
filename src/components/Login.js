@@ -61,8 +61,8 @@ const Login = () => {
     setCredentials({...credentials,[e.target.name]:e.target.value});
   }
   return (
-    <div className="container-md my-4">
-    <div className="col-md-6" style={{margin:"auto",border:"1px solid grey", borderRadius:"5px"}}>
+    <div className="container-md my-4 d-flex"  style={{height:"480px"}}>
+    <div className="col-md-6" style={{margin:"auto",border:"1px solid grey", borderRadius:"5px",background:"#9d9dce"}}>
     <form className="p-3" onSubmit={onSubmit}>
       <div className="mb-3">
         <label htmlFor="email" className="form-label">

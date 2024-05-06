@@ -1,30 +1,27 @@
-import React, { useContext,useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import ProductContext from "../context/ProductContext";
-import {doSignOut} from "../firebase/Auth"
-const Navbar = () => {
+import { doSignOut } from "../firebase/Auth";
+const Navbar = (props) => {
   const context = useContext(AuthContext);
   const productContext = useContext(ProductContext);
-  const { currentUser,userLoggedIn ,initializeUser} = context;
+  const { currentUser, userLoggedIn, initializeUser } = context;
   const { resetCartItems } = productContext;
-  const signOut =async ()=>{
-    try{
+  const signOut = async () => {
+    try {
       await doSignOut();
       initializeUser(null);
       resetCartItems();
+    } catch (e) {
+      console.log(e);
+      alert("error in sigining out! Try again after some time");
     }
-    catch(e){
-      console.log(e)
-      alert("error in sigining out! Try again after some time")
-    }
-  }
-  useEffect(() => {
-    
-  }, [userLoggedIn]);
+  };
+  useEffect(() => {}, [userLoggedIn]);
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-light ">
+      <nav className={`navbar navbar-expand-lg bg-${props.mode === "dark" ? "dark" :"light"} navbar-${props.mode === "dark" ? "dark" :"light"}`}>
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             <img
@@ -93,7 +90,8 @@ const Navbar = () => {
             )}
             {userLoggedIn && (
               <div>
-                <i className="fa-solid fa-user"></i><span className="mx-2">{currentUser.email}</span>
+                <i className="fa-solid fa-user"></i>
+                <span className="mx-2">{currentUser.email}</span>
                 <Link
                   className="btn btn-primary mx-4"
                   to="/login"
@@ -104,9 +102,20 @@ const Navbar = () => {
                 </Link>
               </div>
             )}
-            <Link to="/cart" className="mx-2">
-              <i className="fa-solid fa-cart-shopping" id="cartIcon"></i>
+            <Link to="/cart">
+              <i className="fa-solid fa-cart-shopping mx-3" id="cartIcon"></i>
             </Link>
+            <div className="form-check form-switch">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                id="flexSwitchCheckDefault"
+                onClick={()=>props.changeMode()}
+              />
+              <label className="form-check-label" for="flexSwitchCheckDefault" style={{color: props.mode === "dark" ? "white" : "black"}}>
+                 {props.mode === "dark" ? "Light" : "Dark"}Mode
+              </label>
+            </div>
           </div>
         </div>
       </nav>
