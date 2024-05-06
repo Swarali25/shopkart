@@ -6,7 +6,7 @@ import { useParams,useNavigate } from "react-router-dom";
 const ProductDetails = () => {
   const context = useContext(ProductContext);
   const authContext = useContext(AuthContext);
-  const { fetchProductByID, currentProduct,addToCart ,cartItems} = context;
+  const { fetchProductByID, currentProduct,addToCart ,cartItems,setCurrentProduct} = context;
   const {userLoggedIn,currentUser} =authContext;
 
   const params = useParams();
@@ -15,7 +15,7 @@ const ProductDetails = () => {
   useEffect(() => {
     fetchProductByID(params.id)
     //    setProduct(currentProduct);
-  }, [currentProduct]);
+  }, []);
 
   const addItemToCart = async()=>{
       if(!userLoggedIn){
@@ -33,8 +33,10 @@ const ProductDetails = () => {
 
   return (
     <div className="card mb-3 mx-2 p-3 my-2">
+      
       <div className="row g-0">
         <div className="col-md-4">
+        <button className="btn btn-primary my-3" onClick={()=>{navigate(-1); }}> <i class="fa-solid fa-backward"></i></button>
           <img src={currentProduct.image} className="img-fluid rounded-start" alt="..." />
         </div>
         <div className="col-md-8 d-flex justify-content-center align-items-center">

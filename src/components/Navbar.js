@@ -95,7 +95,7 @@ const Navbar = () => {
               <div>
                 <i className="fa-solid fa-user"></i><span className="mx-2">{currentUser.email}</span>
                 <Link
-                  className="btn btn-primary mx-2"
+                  className="btn btn-primary mx-4"
                   to="/login"
                   role="button"
                   onClick={signOut}
