@@ -36,8 +36,17 @@ const  ProductState = (props)=>{
      localStorage.setItem(email, JSON.stringify(newCart));
    }
 
+   const initializeCartItems = (email)=>{
+     if(localStorage.getItem(email) != null){
+        setCartItems(JSON.parse(localStorage.getItem(email)));
+     }
+   }
+   const resetCartItems = ()=>{
+    setCartItems([]);
+   }
+
     return (
-        <ProductContext.Provider value={{products,fetchProducts,fetchProductByID,currentProduct,addToCart,cartItems,removeItemFromCart}} >
+        <ProductContext.Provider value={{products,fetchProducts,fetchProductByID,currentProduct,addToCart,cartItems,removeItemFromCart,initializeCartItems,resetCartItems}} >
             {props.children}
         </ProductContext.Provider>
     )

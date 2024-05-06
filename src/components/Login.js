@@ -3,12 +3,17 @@ import googleIcon from "../assets/googleIcon.png";
 import {doSignInWithEmailAndPassword,doSignInWithGoogle} from "../firebase/Auth"
 import AuthContext from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import ProductContext from "../context/ProductContext";
 const Login = () => {
   const [credentials, setCredentials] = useState({email:"",password:""});
   const [isSigningIn, setIsSigningIn] = useState(false);
   const [erroMessage, setErroMessage] = useState();
   const context = useContext(AuthContext);
+  const productContext = useContext(ProductContext);
+
+
   const {initializeUser}=context;
+  const { initializeCartItems } = productContext;
   const navigate = useNavigate();
   const onSubmit = async (e) => {
     e.preventDefault()
@@ -17,6 +22,7 @@ const Login = () => {
         setIsSigningIn(true);
         await doSignInWithEmailAndPassword(credentials.email,credentials.password);
         initializeUser({email:credentials.email,password:credentials.password});
+        initializeCartItems(credentials.email)
         navigate("/");
       }
       catch(e){
@@ -36,7 +42,10 @@ const Login = () => {
     if(!isSigningIn){
       try{
         setIsSigningIn(true);
-        await doSignInWithGoogle();
+         const userDetails =await doSignInWithGoogle();
+         console.log(userDetails)
+         initializeCartItems(userDetails.user.email)
+
         navigate("/");
       }
       catch(e){

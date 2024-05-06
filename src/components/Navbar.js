@@ -1,14 +1,18 @@
 import React, { useContext,useEffect } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
+import ProductContext from "../context/ProductContext";
 import {doSignOut} from "../firebase/Auth"
 const Navbar = () => {
   const context = useContext(AuthContext);
+  const productContext = useContext(ProductContext);
   const { currentUser,userLoggedIn ,initializeUser} = context;
+  const { resetCartItems } = productContext;
   const signOut =async ()=>{
     try{
       await doSignOut();
       initializeUser(null);
+      resetCartItems();
     }
     catch(e){
       console.log(e)
