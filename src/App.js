@@ -1,7 +1,7 @@
 import About from "./components/About";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Products from "./components/Products";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
