@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/shopkart/static/css/main.ab448792.css",
+    "main.js": "/shopkart/static/js/main.b8e63dc0.js",
+    "static/js/453.c1eba7ba.chunk.js": "/shopkart/static/js/453.c1eba7ba.chunk.js",
+    "static/media/googleIcon.png": "/shopkart/static/media/googleIcon.213fcf752423cbfcda26.png",
+    "index.html": "/shopkart/index.html",
+    "main.ab448792.css.map": "/shopkart/static/css/main.ab448792.css.map",
+    "main.b8e63dc0.js.map": "/shopkart/static/js/main.b8e63dc0.js.map",
+    "453.c1eba7ba.chunk.js.map": "/shopkart/static/js/453.c1eba7ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ab448792.css",
+    "static/js/main.b8e63dc0.js"
+  ]
+}
