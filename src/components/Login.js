@@ -7,7 +7,7 @@ import ProductContext from "../context/ProductContext";
 const Login = () => {
   const [credentials, setCredentials] = useState({email:"",password:""});
   const [isSigningIn, setIsSigningIn] = useState(false);
-  const [erroMessage, setErroMessage] = useState();
+  const [errorMessage, setErrorMessage] = useState();
   const context = useContext(AuthContext);
   const productContext = useContext(ProductContext);
 
@@ -27,7 +27,7 @@ const Login = () => {
       }
       catch(e){
         setIsSigningIn(false);
-        setErroMessage(e.message);
+        setErrorMessage(e.message);
         alert(e.message,"Try again")
         navigate("/login");
         setCredentials({email:"",password:""})
@@ -38,19 +38,15 @@ const Login = () => {
   };
 
   const onGmailSignIn=async()=>{
-    console.log("onGmailSignIN")
     if(!isSigningIn){
-      try{
+      try {
         setIsSigningIn(true);
-         const userDetails =await doSignInWithGoogle();
-         console.log(userDetails)
-         initializeCartItems(userDetails.user.email)
-
+        const userDetails = await doSignInWithGoogle();
+        initializeCartItems(userDetails.user.email);
         navigate("/");
-      }
-      catch(e){
-        setErroMessage(e.message);
-        alert(e.message,"Try again")
+      } catch (e) {
+        setErrorMessage(e.message);
+        alert(e.message, "Try again");
         setIsSigningIn(false);
       }
      }

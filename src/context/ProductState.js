@@ -19,7 +19,6 @@ const  ProductState = (props)=>{
         fetch(`${hosturl}products/${id}`)
         .then(res => res.json())
         .then((res)=>{
-            console.log(res)
             setCurrentProduct(res);
         })
    }

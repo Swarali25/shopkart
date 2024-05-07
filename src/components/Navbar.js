@@ -15,7 +15,6 @@ const Navbar = (props) => {
       initializeUser(null);
       resetCartItems();
     } catch (e) {
-      console.log(e);
       alert("error in sigining out! Try again after some time");
     }
   };

@@ -6,7 +6,7 @@ import { useParams,useNavigate } from "react-router-dom";
 const ProductDetails = () => {
   const context = useContext(ProductContext);
   const authContext = useContext(AuthContext);
-  const { fetchProductByID, currentProduct,addToCart ,cartItems} = context;
+  const { fetchProductByID, currentProduct,addToCart} = context;
   const {userLoggedIn,currentUser} =authContext;
 
   const params = useParams();
@@ -14,7 +14,6 @@ const ProductDetails = () => {
 
   useEffect(() => {
     fetchProductByID(params.id)
-    //    setProduct(currentProduct);
   }, []);
 
   const addItemToCart = async()=>{
@@ -24,10 +23,7 @@ const ProductDetails = () => {
       }
       else{
         await addToCart(currentUser.email,currentProduct)
-        console.log(cartItems);
-    
-        navigate("/cart");
-        
+        navigate("/cart");      
       }
   }
 
@@ -45,12 +41,10 @@ const ProductDetails = () => {
             <p className="card-text">
               {currentProduct.description}
             </p>
-            {/* <i class="fa-solid fa-star"></i>{currentProduct ? currentProduct.rating.rate :"" } */}
             <h3 className="card-text">
              Rs {currentProduct.price}
             </h3>
             <button className="btn btn-primary my-3" onClick={addItemToCart}>Add to Cart</button>
-
           </div>
         </div>
       </div>

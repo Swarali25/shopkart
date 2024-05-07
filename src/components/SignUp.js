@@ -11,7 +11,6 @@ const SignUp = () => {
   const navigate = useNavigate();
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log(credentials);
     if (credentials.password === credentials.confirmPassword) {
       setIsRegistering(true);
       await doCreateUserWithEmailAndPassword(

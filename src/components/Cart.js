@@ -10,7 +10,7 @@ const Cart = () => {
   const { userLoggedIn, currentUser } = authContext;
   let navigate = useNavigate();
   useEffect(() => {
-    console.log(cartItems)
+  
   }, [cartItems])
 
   const removeItem = (id)=>{

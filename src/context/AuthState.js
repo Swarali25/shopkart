@@ -14,7 +14,6 @@ const AuthState = (props) => {
   }, []);
 
   async function initializeUser(user) {
-    console.log(user)
     if (user) {
       setCurrentUser({ ...user });
       setUserLoggedIn(true);

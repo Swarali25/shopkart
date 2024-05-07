@@ -9,9 +9,9 @@ const Products = (props) => {
     fetchProducts();
   }, []);
 
-  const toLowerCase = (word)=>{
-      return word.toLowerCase();
-  }
+  const toLowerCase = (word) => {
+    return word.toLowerCase();
+  };
 
   return (
     <div className="container my-5">
@@ -20,32 +20,37 @@ const Products = (props) => {
         {products.map((item) => {
           if (props.category === "Best Seller") {
             return (
-               item.rating.rate > 4.2 && <ProductItem item={item} key={item.id} />
+              item.rating.rate > 4.2 && (
+                <ProductItem item={item} key={item.id} />
+              )
             );
-        }
-        else if (props.category === "Women's Clothing"){
+          } else if (props.category === "Women's Clothing") {
             return (
-                item.category === toLowerCase(props.category) && <ProductItem item={item} key={item.id} />
+              item.category === toLowerCase(props.category) && (
+                <ProductItem item={item} key={item.id} />
+              )
             );
-        }
-        else if (props.category === "Men's Clothing"){
+          } else if (props.category === "Men's Clothing") {
             return (
-                item.category === toLowerCase(props.category) && <ProductItem item={item} key={item.id} />
+              item.category === toLowerCase(props.category) && (
+                <ProductItem item={item} key={item.id} />
+              )
             );
-        }
-        else if (props.category === "Electronics"){
+          } else if (props.category === "Electronics") {
             return (
-                item.category === toLowerCase(props.category) && <ProductItem item={item} key={item.id} />
+              item.category === toLowerCase(props.category) && (
+                <ProductItem item={item} key={item.id} />
+              )
             );
-        }
-        else if (props.category === "Jewelery"){
-          return (
-              item.category === toLowerCase(props.category) && <ProductItem item={item} key={item.id} />
-          );
-      }
-        else {
+          } else if (props.category === "Jewelery") {
+            return (
+              item.category === toLowerCase(props.category) && (
+                <ProductItem item={item} key={item.id} />
+              )
+            );
+          } else {
             return <ProductItem item={item} key={item.id} />;
-        }
+          }
         })}
       </div>
     </div>
