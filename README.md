@@ -2,6 +2,8 @@
 
 Welcome to **ShopKart**, the ultimate e-commerce shopping platform built with the modern React.js framework and styled using Bootstrap for a responsive and intuitive user interface. Dive into a seamless shopping experience where fashion, electronics, and jewelry come alive at your fingertips.
 
+**Check out the [ShopKart Live Demo](https://swarali25.github.io/shopkart/) for more details.**
+
 ## Features
 
 - **Dynamic Product Data**: ShopKart's product listings are powered by a REST API, ensuring that you always have access to the latest items and prices.
@@ -11,5 +13,8 @@ Welcome to **ShopKart**, the ultimate e-commerce shopping platform built with th
 - **Responsive Design**: Enjoy a consistent shopping experience across various devices, thanks to resolution-wise display support.
 - **Accessibility**: User-friendly features make ShopKart accessible to all, ensuring a comfortable shopping journey.
 - **About Section**: Learn more about the company's mission, vision, and values in our dedicated 'About' section.
+
+
+
 
 
