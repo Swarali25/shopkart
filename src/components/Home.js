@@ -14,9 +14,9 @@ const Home = () => {
             alt="bannerImage"
           />
         </div>
-        <div className="card w-40" id="offerCard">
+        <div className="card col-md-4 col-lg-6 mx-auto" id="offerCard">
           <div className="card-body">
-            <h3 className="card-title">Flash Sale: Up to 50% Off on Fashion & Accessories!</h3>
+            <h3 className="card-title">Flash Sale: Up to 50% Off on Fashion & Electronics!</h3>
           </div>
         </div>
       </div>

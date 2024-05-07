@@ -62,7 +62,7 @@ const Login = () => {
   }
   return (
     <div className="container-md my-4 d-flex"  style={{height:"480px"}}>
-    <div className="col-md-6" style={{margin:"auto",border:"1px solid grey", borderRadius:"5px",background:"#9d9dce"}}>
+    <div className="col-lg-5 col-md-8 col-sm-10 col-11" style={{margin:"auto",border:"1px solid grey", borderRadius:"5px",background:"#9d9dce"}}>
     <form className="p-3" onSubmit={onSubmit}>
       <div className="mb-3">
         <label htmlFor="email" className="form-label">

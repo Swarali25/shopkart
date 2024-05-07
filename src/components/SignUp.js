@@ -27,7 +27,7 @@ const SignUp = () => {
   };
   return (
     <div className="container-md my-4 d-flex" style={{height:"480px"}}>
-      <div className="col-md-6" style={{ margin: "auto",background:"#9d9dce",border:"1px solid grey", borderRadius:"5px" }}>
+      <div className="col-lg-5 col-md-8 col-sm-10 col-11" style={{ margin: "auto",background:"#9d9dce",border:"1px solid grey", borderRadius:"5px" }}>
         <form
           style={{ border: "1px solid grey", borderRadius: "5px" }}
           className="p-3"

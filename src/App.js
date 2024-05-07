@@ -12,7 +12,7 @@ import AuthState from "./context/AuthState";
 import ProductDetails from "./components/ProductDetails";
 import React ,{useState} from "react";
 function App() {
-  const [mode, setMode] = useState("dark");
+  const [mode, setMode] = useState("light");
   
   const changeMode = ()=>{
     if(mode === "dark"){
@@ -37,6 +37,7 @@ function App() {
           <Route exact path="/womens" key={"womens"} element={<Products category={"Women's Clothing"}/>}></Route>
           <Route exact path="/mens" key={"mens"} element={<Products category={"Men's Clothing"} />}></Route>
           <Route exact path="/electronics" key={"electronics"} element={<Products category={"Electronics"} />}></Route>
+          <Route exact path="/jewelery" key={"jewelery"} element={<Products category={"Jewelery"} />}></Route>
           <Route exact path="/about" element={<About />}></Route>
           <Route exact path="/login" element={<Login />}></Route>
           <Route exact path="/signup" element={<SignUp />}></Route>

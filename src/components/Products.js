@@ -20,7 +20,7 @@ const Products = (props) => {
         {products.map((item) => {
           if (props.category === "Best Seller") {
             return (
-              item.rating.rate > 4.2 && <ProductItem item={item} key={item.id} />
+               item.rating.rate > 4.2 && <ProductItem item={item} key={item.id} />
             );
         }
         else if (props.category === "Women's Clothing"){
@@ -38,6 +38,11 @@ const Products = (props) => {
                 item.category === toLowerCase(props.category) && <ProductItem item={item} key={item.id} />
             );
         }
+        else if (props.category === "Jewelery"){
+          return (
+              item.category === toLowerCase(props.category) && <ProductItem item={item} key={item.id} />
+          );
+      }
         else {
             return <ProductItem item={item} key={item.id} />;
         }

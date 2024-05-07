@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link,useLocation } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import ProductContext from "../context/ProductContext";
 import { doSignOut } from "../firebase/Auth";
@@ -8,6 +8,7 @@ const Navbar = (props) => {
   const productContext = useContext(ProductContext);
   const { currentUser, userLoggedIn, initializeUser } = context;
   const { resetCartItems } = productContext;
+  const location = useLocation();
   const signOut = async () => {
     try {
       await doSignOut();
@@ -44,27 +45,32 @@ const Navbar = (props) => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/">
+                <Link className={`nav-link ${location.pathname === "/" ? "active" :""}`} aria-current="page" to="/">
                   Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/womens">
-                  Womens's Clothing
+                <Link className={`nav-link ${location.pathname === "/womens" ? "active" :""}`} to="/womens">
+                  Womens
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/mens">
-                  Men's Clothing
+                <Link className={`nav-link ${location.pathname === "/mens" ? "active" :""}`} to="/mens">
+                  Mens
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/electronics">
+                <Link className={`nav-link ${location.pathname === "/electronics" ? "active" :""}`} to="/electronics">
                   Electronics
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/about">
+                <Link className={`nav-link ${location.pathname === "/jewelary" ? "active" :""}`} to="/jewelery">
+                Jewelary
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className={`nav-link ${location.pathname === "/about" ? "active" :""}`} to="/about">
                   About
                 </Link>
               </li>
@@ -73,14 +79,14 @@ const Navbar = (props) => {
             {!userLoggedIn && (
               <div>
                 <Link
-                  className="btn btn-primary mx-2"
+                  className="btn btn-primary mx-0"
                   to="/login"
                   role="button"
                 >
                   Login
                 </Link>{" "}
                 <Link
-                  className="btn btn-primary mx-2"
+                  className="btn btn-primary mx-1"
                   to="/signup"
                   role="button"
                 >
@@ -102,8 +108,8 @@ const Navbar = (props) => {
                 </Link>
               </div>
             )}
-            <Link to="/cart">
-              <i className="fa-solid fa-cart-shopping mx-3" id="cartIcon"></i>
+            <Link to="/cart" className="my-3 d-block">
+              <i className="fa-solid fa-cart-shopping mx-3 fa-2xl" id="cartIcon"></i>
             </Link>
             <div className="form-check form-switch">
               <input
@@ -112,7 +118,7 @@ const Navbar = (props) => {
                 id="flexSwitchCheckDefault"
                 onClick={()=>props.changeMode()}
               />
-              <label className="form-check-label" for="flexSwitchCheckDefault" style={{color: props.mode === "dark" ? "white" : "black"}}>
+              <label className="form-check-label" htmlFor="flexSwitchCheckDefault" style={{color: props.mode === "dark" ? "white" : "black"}}>
                  {props.mode === "dark" ? "Light" : "Dark"}Mode
               </label>
             </div>

@@ -37,7 +37,7 @@ const Cart = () => {
       <h2>Cart Items</h2>
       <div className="row">
       {userLoggedIn && cartItems.map((product) => {
-        return <div key={product.id} className="col-md-3 my-3 mx-5" style={{ textDecoration: "none" }}>
+        return <div key={product.id} className="col-xl-4 col-lg-4 col-md-6 my-3 mx-auto" style={{ textDecoration: "none" }}>
           <div>
             <div className="card">
               <img

@@ -10,7 +10,14 @@
 #offerCard{
     color: white;
     position: absolute;
-    top: 50%;
+    top: 40%;
     background: transparent;
     border: none;
+}
+
+@media screen and (max-width : 800px) {
+    #offerCard{
+        width: 50vw;
+    }
+    
 }

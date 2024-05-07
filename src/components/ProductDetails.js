@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import ProductContext from "../context/ProductContext";
 import AuthContext from "../context/AuthContext";
 import { useParams,useNavigate } from "react-router-dom";
@@ -6,7 +6,7 @@ import { useParams,useNavigate } from "react-router-dom";
 const ProductDetails = () => {
   const context = useContext(ProductContext);
   const authContext = useContext(AuthContext);
-  const { fetchProductByID, currentProduct,addToCart ,cartItems,setCurrentProduct} = context;
+  const { fetchProductByID, currentProduct,addToCart ,cartItems} = context;
   const {userLoggedIn,currentUser} =authContext;
 
   const params = useParams();
